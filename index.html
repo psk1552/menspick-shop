@@ -4,14 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="남자의 일상을 바꾸는 가치 있는 발견. 남자의 발견 공식 상품 구매관">
+<meta name="description" content="남자의 일상을 바꾸는 가치 있는 발견">
 <title>남자의 발견 | MEN'S PICK</title>
 <style>
 :root {
   --gold: #d4af37;
   --bg: #101010;
   --panel: #1c1c1c;
-  --muted: #aaa;
 }
 * { box-sizing: border-box; }
 body {
@@ -21,119 +20,137 @@ body {
   font-family: "Malgun Gothic", Arial, sans-serif;
 }
 header {
-  padding: 38px 15px 30px;
+  padding: 32px 16px;
   text-align: center;
-  border-bottom: 1px solid #594a27;
-  background: linear-gradient(150deg,#080808,#242018);
+  background: linear-gradient(145deg,#080808,#292317);
+  border-bottom: 1px solid #66552d;
 }
 .logo {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
   border-radius: 50%;
 }
 h1 {
   color: var(--gold);
-  font-size: 30px;
-  margin: 12px 0 5px;
+  font-size: 38px;
+  margin: 12px 0 6px;
 }
 .english {
   color: var(--gold);
-  letter-spacing: 5px;
-  font-size: 14px;
+  font-size: 17px;
+  letter-spacing: 6px;
 }
 .slogan {
-  color: #ccc;
-  font-size: 13px;
-  margin-top: 18px;
+  color: #ddd;
+  font-size: 16px;
+  margin-top: 15px;
 }
 main {
-  max-width: 1050px;
+  max-width: 1200px;
   margin: auto;
-  padding: 18px;
+  padding: 24px;
 }
 .disclosure {
-  font-size: 12px;
   color: #ccc;
+  font-size: 13px;
   line-height: 1.7;
-  border: 1px solid #454545;
-  padding: 12px;
+  padding: 12px 16px;
+  border: 1px solid #444;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 #search {
   width: 100%;
-  padding: 16px;
-  border: 1px solid #66562d;
-  background: #202020;
+  padding: 19px;
+  background: #222;
   color: white;
+  border: 1px solid #776232;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 18px;
 }
 .categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  gap: 9px;
+  margin: 20px 0 30px;
 }
 .categories button {
+  min-height: 48px;
+  padding: 12px 6px;
+  background: #242424;
   border: 1px solid #555;
-  background: #222;
-  color: #ddd;
-  border-radius: 25px;
-  padding: 10px 15px;
+  color: #eee;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
 }
 .categories button.active {
   background: var(--gold);
   color: #111;
   border-color: var(--gold);
-  font-weight: bold;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.section-heading h2 {
+  font-size: 25px;
+  color: var(--gold);
+  margin: 0;
 }
 #count {
-  color: #aaa;
-  font-size: 13px;
-  margin: 18px 0;
+  color: #bbb;
+  font-size: 14px;
 }
 #products {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 18px;
 }
 .product {
-  background: var(--panel);
-  border: 1px solid #3c3628;
-  border-radius: 14px;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid #51462d;
+  border-radius: 14px;
 }
-.product img {
+.image-link {
+  flex: 0 0 100px;
+  display: block;
+}
+.image-link img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4/3;
+  max-height: 200px;
   object-fit: contain;
-  background: #161616;
 }
 .details {
-  padding: 18px;
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  min-width: 0;
 }
 .number {
   color: var(--gold);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
 }
 .product h2 {
-  font-size: 19px;
+  font-size: 21px;
   line-height: 1.5;
-  margin: 10px 0;
+  margin: 9px 0;
+  overflow-wrap: anywhere;
 }
 .description {
-  color: #bbb;
-  font-size: 14px;
-  line-height: 1.7;
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 10px 0 18px;
 }
 .buy {
   display: block;
@@ -141,30 +158,92 @@ main {
   text-decoration: none;
   color: #111;
   background: var(--gold);
+  font-size: 15px;
   font-weight: bold;
-  padding: 15px;
+  padding: 14px 8px;
   border-radius: 8px;
-  margin-top: auto;
+}
+.buy:hover {
+  background: #efcc59;
 }
 .notice {
+  color: #aaa;
   font-size: 11px;
-  color: #999;
-  margin-top: 10px;
+  margin-top: 9px;
   text-align: center;
 }
 footer {
   text-align: center;
-  border-top: 1px solid #333;
   padding: 30px 15px;
-  color: #999;
-  font-size: 12px;
-  line-height: 2;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 2.1;
 }
-footer a { color: var(--gold); }
+footer a {
+  color: var(--gold);
+}
+@media(max-width:900px) {
+  #products {
+    grid-template-columns: 1fr;
+  }
+  .categories {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
 @media(max-width:600px) {
-  #products { grid-template-columns: 1fr; }
-  header { padding: 26px 12px; }
-  main { padding: 14px; }
+  header {
+    padding: 24px 12px;
+  }
+  .logo {
+    width: 88px;
+    height: 88px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .english {
+    font-size: 14px;
+  }
+  .slogan {
+    font-size: 13px;
+  }
+  main {
+    padding: 14px;
+  }
+  #search {
+    font-size: 16px;
+    padding: 16px;
+  }
+  .categories {
+    gap: 6px;
+    margin: 15px 0 24px;
+  }
+  .categories button {
+    font-size: 13px;
+    min-height: 44px;
+  }
+  .product {
+    padding: 13px;
+    gap: 12px;
+  }
+  .image-link {
+    flex-basis: 88px;
+  }
+  .product h2 {
+    font-size: 17px;
+  }
+  .description {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .buy {
+    font-size: 13px;
+  }
+  .section-heading h2 {
+    font-size: 21px;
+  }
 }
 </style>
 </head>
@@ -190,7 +269,12 @@ footer a { color: var(--gold); }
     aria-label="상품 검색">
 
   <div class="categories" id="categories"></div>
-  <div id="count" aria-live="polite">상품을 불러오는 중입니다.</div>
+
+  <div class="section-heading">
+    <h2>최신 추천 상품</h2>
+    <div id="count" aria-live="polite">불러오는 중</div>
+  </div>
+
   <div id="products"></div>
 </main>
 
@@ -201,6 +285,9 @@ footer a { color: var(--gold); }
   &nbsp; | &nbsp;
   <a href="https://www.instagram.com/men.spick/"
      target="_blank" rel="noopener noreferrer">Instagram</a>
+  &nbsp; | &nbsp;
+  <a href="https://www.facebook.com/profile.php?id=61596658090077"
+     target="_blank" rel="noopener noreferrer">Facebook</a>
   &nbsp; | &nbsp;
   <a href="https://blog.naver.com/psk1552"
      target="_blank" rel="noopener noreferrer">Blog</a>
@@ -224,14 +311,35 @@ const searchBox = document.getElementById("search");
 const productBox = document.getElementById("products");
 const countBox = document.getElementById("count");
 
+function validLink(value) {
+  try {
+    const url = new URL(value);
+    if (
+      url.protocol === "https:" &&
+      ["link.coupang.com","www.coupang.com","coupa.ng"]
+      .includes(url.hostname)
+    ) {
+      return url.href;
+    }
+  } catch(e) {}
+  return null;
+}
+
+function setLink(element,url) {
+  element.href = url;
+  element.target = "_blank";
+  element.rel = "sponsored noopener";
+  element.referrerPolicy = "unsafe-url";
+}
+
 categories.forEach(category => {
   const button = document.createElement("button");
   button.textContent = category;
-  if (category === selected) button.classList.add("active");
+  button.classList.toggle("active", category === selected);
   button.onclick = () => {
     selected = category;
     categoryBox.querySelectorAll("button").forEach(b =>
-      b.classList.toggle("active", b.textContent === selected)
+      b.classList.toggle("active",b.textContent === selected)
     );
     render();
   };
@@ -243,16 +351,18 @@ function render() {
 
   const filtered = products.filter(p => {
     const text = [
-      p.id, p.name, p.category, p.description
+      p.id,p.name,p.model,p.category,p.description
     ].join(" ").toLowerCase();
 
-    const numberMatch =
+    const matchNumber =
       /^\d+$/.test(keyword) &&
       Number(p.id) === Number(keyword);
 
     return (selected === "전체" || p.category === selected)
-      && (text.includes(keyword) || numberMatch);
+      && (text.includes(keyword) || matchNumber);
   });
+
+  filtered.sort((a,b) => Number(b.id)-Number(a.id));
 
   productBox.replaceChildren();
   countBox.textContent = `추천 상품 ${filtered.length}개`;
@@ -261,13 +371,26 @@ function render() {
     const card = document.createElement("article");
     card.className = "product";
 
+    const url = validLink(p.link);
+
     if (p.image) {
+      const imageLink = document.createElement(
+        url ? "a" : "div"
+      );
+      imageLink.className = "image-link";
+
+      if (url) {
+        setLink(imageLink, validLink(p.imageLink) || url);
+      }
+
       const img = document.createElement("img");
       img.src = p.image;
       img.alt = p.name;
       img.loading = "lazy";
-      img.onerror = () => img.remove();
-      card.appendChild(img);
+      img.onerror = () => imageLink.remove();
+
+      imageLink.appendChild(img);
+      card.appendChild(imageLink);
     }
 
     const details = document.createElement("div");
@@ -284,21 +407,15 @@ function render() {
     desc.className = "description";
     desc.textContent = p.description;
 
-    details.append(number, title, desc);
+    details.append(number,title,desc);
 
-    try {
-      const url = new URL(p.link);
-      if (url.protocol === "https:" &&
-          ["link.coupang.com", "www.coupang.com"].includes(url.hostname)) {
-        const buy = document.createElement("a");
-        buy.className = "buy";
-        buy.href = url.href;
-        buy.target = "_blank";
-        buy.rel = "sponsored noopener noreferrer";
-        buy.textContent = "쿠팡 상품 확인 및 구매 →";
-        details.appendChild(buy);
-      }
-    } catch (e) {}
+    if (url) {
+      const buy = document.createElement("a");
+      buy.className = "buy";
+      setLink(buy,url);
+      buy.textContent = "쿠팡 상품 확인 및 구매 →";
+      details.appendChild(buy);
+    }
 
     const notice = document.createElement("div");
     notice.className = "notice";
@@ -314,9 +431,9 @@ function render() {
   }
 }
 
-searchBox.addEventListener("input", render);
+searchBox.addEventListener("input",render);
 
-fetch("./products.json", {cache: "no-cache"})
+fetch("./products.json",{cache:"no-cache"})
   .then(response => {
     if (!response.ok) throw new Error("Load failed");
     return response.json();
@@ -328,6 +445,12 @@ fetch("./products.json", {cache: "no-cache"})
   })
   .catch(() => {
     countBox.textContent = "상품 등록을 준비 중입니다.";
+  });
+</script>
+
+</body>
+</html>
+
   });
 </script>
 
