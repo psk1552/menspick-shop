@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="남자의 일상을 바꾸는 가치 있는 발견. 남자의 발견 공식 상품 구매관">
+<title>남자의 발견 | MEN'S PICK</title>
+<style>
+:root {
+  --gold: #d4af37;
+  --bg: #101010;
+  --panel: #1c1c1c;
+  --muted: #aaa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #fff;
+  font-family: "Malgun Gothic", Arial, sans-serif;
+}
+header {
+  padding: 38px 15px 30px;
+  text-align: center;
+  border-bottom: 1px solid #594a27;
+  background: linear-gradient(150deg,#080808,#242018);
+}
+.logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+h1 {
+  color: var(--gold);
+  font-size: 30px;
+  margin: 12px 0 5px;
+}
+.english {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 14px;
+}
+.slogan {
+  color: #ccc;
+  font-size: 13px;
+  margin-top: 18px;
+}
+main {
+  max-width: 1050px;
+  margin: auto;
+  padding: 18px;
+}
+.disclosure {
+  font-size: 12px;
+  color: #ccc;
+  line-height: 1.7;
+  border: 1px solid #454545;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+#search {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #66562d;
+  background: #202020;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+.categories button {
+  border: 1px solid #555;
+  background: #222;
+  color: #ddd;
+  border-radius: 25px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.categories button.active {
+  background: var(--gold);
+  color: #111;
+  border-color: var(--gold);
+  font-weight: bold;
+}
+#count {
+  color: #aaa;
+  font-size: 13px;
+  margin: 18px 0;
+}
+#products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+}
+.product {
+  background: var(--panel);
+  border: 1px solid #3c3628;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.product img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  background: #161616;
+}
+.details {
+  padding: 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.number {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: bold;
+}
+.product h2 {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+.description {
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.buy {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  background: var(--gold);
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: auto;
+}
+.notice {
+  font-size: 11px;
+  color: #999;
+  margin-top: 10px;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding: 30px 15px;
+  color: #999;
+  font-size: 12px;
+  line-height: 2;
+}
+footer a { color: var(--gold); }
+@media(max-width:600px) {
+  #products { grid-template-columns: 1fr; }
+  header { padding: 26px 12px; }
+  main { padding: 14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="images/logo.png"
+       alt="남자의 발견"
+       onerror="this.style.display='none'">
+  <h1>남자의 발견</h1>
+  <div class="english">MEN'S PICK</div>
+  <div class="slogan">남자의 일상을 바꾸는 가치 있는 발견</div>
+</header>
+
+<main>
+  <div class="disclosure">
+    이 포스팅은 쿠팡 파트너스 활동의 일환으로,
+    이에 따른 일정액의 수수료를 제공받습니다.
+  </div>
+
+  <input id="search" type="search"
+    placeholder="상품번호 또는 상품명을 검색하세요"
+    aria-label="상품 검색">
+
+  <div class="categories" id="categories"></div>
+  <div id="count" aria-live="polite">상품을 불러오는 중입니다.</div>
+  <div id="products"></div>
+</main>
+
+<footer>
+  MEN'S PICK | 남자의 발견<br>
+  <a href="https://www.youtube.com/@menspick"
+     target="_blank" rel="noopener noreferrer">YouTube</a>
+  &nbsp; | &nbsp;
+  <a href="https://www.instagram.com/men.spick/"
+     target="_blank" rel="noopener noreferrer">Instagram</a>
+  &nbsp; | &nbsp;
+  <a href="https://blog.naver.com/psk1552"
+     target="_blank" rel="noopener noreferrer">Blog</a>
+  <br>
+  상품 가격과 재고는 판매처에서 확인해 주세요.<br>
+  © MEN'S PICK
+</footer>
+
+<script>
+let products = [];
+let selected = "전체";
+
+const categories = [
+  "전체", "자동차", "공구", "디지털",
+  "캠핑", "골프·스포츠", "생활용품",
+  "프리미엄"
+];
+
+const categoryBox = document.getElementById("categories");
+const searchBox = document.getElementById("search");
+const productBox = document.getElementById("products");
+const countBox = document.getElementById("count");
+
+categories.forEach(category => {
+  const button = document.createElement("button");
+  button.textContent = category;
+  if (category === selected) button.classList.add("active");
+  button.onclick = () => {
+    selected = category;
+    categoryBox.querySelectorAll("button").forEach(b =>
+      b.classList.toggle("active", b.textContent === selected)
+    );
+    render();
+  };
+  categoryBox.appendChild(button);
+});
+
+function render() {
+  const keyword = searchBox.value.trim().toLowerCase();
+
+  const filtered = products.filter(p => {
+    const text = [
+      p.id, p.name, p.category, p.description
+    ].join(" ").toLowerCase();
+
+    const numberMatch =
+      /^\d+$/.test(keyword) &&
+      Number(p.id) === Number(keyword);
+
+    return (selected === "전체" || p.category === selected)
+      && (text.includes(keyword) || numberMatch);
+  });
+
+  productBox.replaceChildren();
+  countBox.textContent = `추천 상품 ${filtered.length}개`;
+
+  filtered.forEach(p => {
+    const card = document.createElement("article");
+    card.className = "product";
+
+    if (p.image) {
+      const img = document.createElement("img");
+      img.src = p.image;
+      img.alt = p.name;
+      img.loading = "lazy";
+      img.onerror = () => img.remove();
+      card.appendChild(img);
+    }
+
+    const details = document.createElement("div");
+    details.className = "details";
+
+    const number = document.createElement("div");
+    number.className = "number";
+    number.textContent = `NO. ${p.id} | ${p.category}`;
+
+    const title = document.createElement("h2");
+    title.textContent = p.name;
+
+    const desc = document.createElement("p");
+    desc.className = "description";
+    desc.textContent = p.description;
+
+    details.append(number, title, desc);
+
+    try {
+      const url = new URL(p.link);
+      if (url.protocol === "https:" &&
+          ["link.coupang.com", "www.coupang.com"].includes(url.hostname)) {
+        const buy = document.createElement("a");
+        buy.className = "buy";
+        buy.href = url.href;
+        buy.target = "_blank";
+        buy.rel = "sponsored noopener noreferrer";
+        buy.textContent = "쿠팡 상품 확인 및 구매 →";
+        details.appendChild(buy);
+      }
+    } catch (e) {}
+
+    const notice = document.createElement("div");
+    notice.className = "notice";
+    notice.textContent = "가격 및 할인 혜택은 쿠팡에서 확인";
+    details.appendChild(notice);
+
+    card.appendChild(details);
+    productBox.appendChild(card);
+  });
+
+  if (!filtered.length) {
+    countBox.textContent = "해당 상품이 없습니다.";
+  }
+}
+
+searchBox.addEventListener("input", render);
+
+fetch("./products.json", {cache: "no-cache"})
+  .then(response => {
+    if (!response.ok) throw new Error("Load failed");
+    return response.json();
+  })
+  .then(data => {
+    if (!Array.isArray(data)) throw new Error("Invalid data");
+    products = data;
+    render();
+  })
+  .catch(() => {
+    countBox.textContent = "상품 등록을 준비 중입니다.";
+  });
+</script>
+
+</body>
+</html>
