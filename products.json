@@ -1,4 +1,3 @@
-
 [
   {
     "id": "001",
@@ -8,5 +7,14 @@
     "description": "7,500mAh 대용량 배터리, 최대 150 PSI, 80cm 호스, 설정 공기압 도달 시 자동 정지 기능. 자동차와 자전거 등의 공기압을 편리하게 관리할 수 있는 제품입니다.",
     "image": "https://image7.coupangcdn.com/image/affiliate/banner/8b488f170f942cd4bd8c767efbcda7d9@2x.jpg",
     "link": "https://link.coupang.com/a/iWdKUy4UWO"
+  },
+  {
+    "id": "002",
+    "name": "우스틴스 차량용 6 IN 1 점프스타터",
+    "model": "6 IN 1",
+    "category": "자동차",
+    "description": "자동차 배터리 점프스타트, 최대 150 PSI 타이어 공기압 충전, 보조배터리, LED 비상조명, 에어 블로어, 진공 흡입 기능을 갖춘 차량용 다기능 비상 장비입니다. 구매 전 차량 호환성을 확인하세요.",
+    "image": "https://image2.coupangcdn.com/image/affiliate/banner/e89dec2129125bba7448f42f636f2207@2x.jpg",
+    "link": "https://link.coupang.com/a/iXloVX5Uqb"
   }
 ]
