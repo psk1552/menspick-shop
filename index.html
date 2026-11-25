@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,51 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="남자의 일상을 바꾸는 가치 있는 발견">
 <title>남자의 발견 | MEN'S PICK</title>
+
 <style>
 :root {
   --gold: #d4af37;
   --bg: #101010;
   --panel: #1c1c1c;
 }
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background: var(--bg);
   color: #fff;
   font-family: "Malgun Gothic", Arial, sans-serif;
 }
+
 header {
   padding: 32px 16px;
   text-align: center;
   background: linear-gradient(145deg,#080808,#292317);
   border-bottom: 1px solid #66552d;
 }
+
+.home-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.home-link:hover .logo {
+  filter: brightness(1.15);
+}
+
+.home-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 8px;
+  border-radius: 10px;
+}
+
 .logo {
   width: 110px;
   height: 110px;
   object-fit: contain;
   border-radius: 50%;
+  transition: filter 0.2s;
 }
+
 h1 {
   color: var(--gold);
   font-size: 38px;
   margin: 12px 0 6px;
 }
+
 .english {
   color: var(--gold);
   font-size: 17px;
   letter-spacing: 6px;
 }
+
 .slogan {
   color: #ddd;
   font-size: 16px;
   margin-top: 15px;
 }
+
 main {
   max-width: 1200px;
   margin: auto;
   padding: 24px;
 }
+
 .disclosure {
   color: #ccc;
   font-size: 13px;
@@ -60,6 +89,7 @@ main {
   border-radius: 8px;
   margin-bottom: 22px;
 }
+
 #search {
   width: 100%;
   padding: 19px;
@@ -69,13 +99,20 @@ main {
   border-radius: 10px;
   font-size: 18px;
 }
+
+#search:focus {
+  outline: 1px solid var(--gold);
+}
+
 .categories {
-  display: grid;
-  grid-template-columns: repeat(8,1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 9px;
   margin: 20px 0 30px;
 }
+
 .categories button {
+  flex: 1 1 112px;
   min-height: 48px;
   padding: 12px 6px;
   background: #242424;
@@ -85,12 +122,19 @@ main {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s;
 }
+
+.categories button:hover {
+  border-color: var(--gold);
+}
+
 .categories button.active {
   background: var(--gold);
   color: #111;
   border-color: var(--gold);
 }
+
 .section-heading {
   display: flex;
   align-items: center;
@@ -98,20 +142,24 @@ main {
   gap: 12px;
   margin-bottom: 18px;
 }
+
 .section-heading h2 {
   font-size: 25px;
   color: var(--gold);
   margin: 0;
 }
+
 #count {
   color: #bbb;
   font-size: 14px;
 }
+
 #products {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
   gap: 18px;
 }
+
 .product {
   display: flex;
   align-items: center;
@@ -121,37 +169,44 @@ main {
   border: 1px solid #51462d;
   border-radius: 14px;
 }
+
 .image-link {
   flex: 0 0 100px;
   display: block;
 }
+
 .image-link img {
   display: block;
   width: 100%;
   max-height: 200px;
   object-fit: contain;
 }
+
 .details {
   flex: 1;
   min-width: 0;
 }
+
 .number {
   color: var(--gold);
   font-size: 14px;
   font-weight: bold;
 }
+
 .product h2 {
   font-size: 21px;
   line-height: 1.5;
   margin: 9px 0;
   overflow-wrap: anywhere;
 }
+
 .description {
   color: #ccc;
   font-size: 15px;
   line-height: 1.75;
   margin: 10px 0 18px;
 }
+
 .buy {
   display: block;
   text-align: center;
@@ -163,15 +218,27 @@ main {
   padding: 14px 8px;
   border-radius: 8px;
 }
+
 .buy:hover {
   background: #efcc59;
 }
+
 .notice {
   color: #aaa;
   font-size: 11px;
   margin-top: 9px;
   text-align: center;
 }
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 15px;
+  color: #aaa;
+  border: 1px solid #444;
+  border-radius: 12px;
+}
+
 footer {
   text-align: center;
   padding: 30px 15px;
@@ -181,128 +248,188 @@ footer {
   font-size: 13px;
   line-height: 2.1;
 }
+
 footer a {
   color: var(--gold);
 }
+
 @media(max-width:900px) {
   #products {
     grid-template-columns: 1fr;
   }
-  .categories {
-    grid-template-columns: repeat(4,1fr);
+
+  .categories button {
+    flex-basis: 21%;
   }
 }
+
 @media(max-width:600px) {
   header {
     padding: 24px 12px;
   }
+
   .logo {
     width: 88px;
     height: 88px;
   }
+
   h1 {
     font-size: 30px;
   }
+
   .english {
     font-size: 14px;
   }
+
   .slogan {
     font-size: 13px;
   }
+
   main {
     padding: 14px;
   }
+
   #search {
     font-size: 16px;
     padding: 16px;
   }
+
   .categories {
     gap: 6px;
     margin: 15px 0 24px;
   }
+
   .categories button {
     font-size: 13px;
     min-height: 44px;
+    flex-basis: 28%;
   }
+
   .product {
     padding: 13px;
     gap: 12px;
   }
+
   .image-link {
     flex-basis: 88px;
   }
+
   .product h2 {
     font-size: 17px;
   }
+
   .description {
     font-size: 13px;
     line-height: 1.6;
   }
+
   .buy {
     font-size: 13px;
   }
+
   .section-heading h2 {
     font-size: 21px;
   }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <img class="logo" src="images/logo.png"
-       alt="남자의 발견"
-       onerror="this.style.display='none'">
-  <h1>남자의 발견</h1>
-  <div class="english">MEN'S PICK</div>
-  <div class="slogan">남자의 일상을 바꾸는 가치 있는 발견</div>
+  <a href="./" class="home-link" id="homeLink"
+     aria-label="남자의 발견 홈페이지 새로고침"
+     title="홈으로 이동 및 새로고침">
+
+    <img class="logo"
+         src="images/logo.png"
+         alt="남자의 발견"
+         onerror="this.style.display='none'">
+
+    <h1>남자의 발견</h1>
+    <div class="english">MEN'S PICK</div>
+  </a>
+
+  <div class="slogan">
+    남자의 일상을 바꾸는 가치 있는 발견
+  </div>
 </header>
 
 <main>
+
   <div class="disclosure">
     이 포스팅은 쿠팡 파트너스 활동의 일환으로,
     이에 따른 일정액의 수수료를 제공받습니다.
   </div>
 
-  <input id="search" type="search"
-    placeholder="상품번호 또는 상품명을 검색하세요"
-    aria-label="상품 검색">
+  <input id="search"
+         type="search"
+         autocomplete="off"
+         placeholder="상품번호 또는 상품명을 검색하세요"
+         aria-label="상품 검색">
 
   <div class="categories" id="categories"></div>
 
   <div class="section-heading">
-    <h2>최신 추천 상품</h2>
-    <div id="count" aria-live="polite">불러오는 중</div>
+    <h2 id="sectionTitle">최신 추천 상품</h2>
+    <div id="count" aria-live="polite">
+      불러오는 중
+    </div>
   </div>
 
   <div id="products"></div>
+
 </main>
 
 <footer>
+
   MEN'S PICK | 남자의 발견<br>
+
   <a href="https://www.youtube.com/@menspick"
-     target="_blank" rel="noopener noreferrer">YouTube</a>
+     target="_blank"
+     rel="noopener noreferrer">YouTube</a>
+
   &nbsp; | &nbsp;
+
   <a href="https://www.instagram.com/men.spick/"
-     target="_blank" rel="noopener noreferrer">Instagram</a>
+     target="_blank"
+     rel="noopener noreferrer">Instagram</a>
+
   &nbsp; | &nbsp;
+
   <a href="https://www.facebook.com/profile.php?id=61596658090077"
-     target="_blank" rel="noopener noreferrer">Facebook</a>
+     target="_blank"
+     rel="noopener noreferrer">Facebook</a>
+
   &nbsp; | &nbsp;
+
   <a href="https://blog.naver.com/psk1552"
-     target="_blank" rel="noopener noreferrer">Blog</a>
+     target="_blank"
+     rel="noopener noreferrer">Blog</a>
+
   <br>
+
   상품 가격과 재고는 판매처에서 확인해 주세요.<br>
+
   © MEN'S PICK
+
 </footer>
 
 <script>
+
 let products = [];
 let selected = "전체";
+let loaded = false;
 
-const categories = [
-  "전체", "자동차", "공구", "디지털",
-  "캠핑", "골프·스포츠", "생활용품",
+const baseCategories = [
+  "전체",
+  "자동차",
+  "공구",
+  "디지털",
+  "캠핑",
+  "골프·스포츠",
+  "생활용품",
+  "남성 그루밍",
   "프리미엄"
 ];
 
@@ -310,87 +437,163 @@ const categoryBox = document.getElementById("categories");
 const searchBox = document.getElementById("search");
 const productBox = document.getElementById("products");
 const countBox = document.getElementById("count");
+const sectionTitle = document.getElementById("sectionTitle");
+const homeLink = document.getElementById("homeLink");
+
+searchBox.value = "";
 
 function validLink(value) {
   try {
     const url = new URL(value);
+
     if (
       url.protocol === "https:" &&
-      ["link.coupang.com","www.coupang.com","coupa.ng"]
-      .includes(url.hostname)
+      [
+        "link.coupang.com",
+        "www.coupang.com",
+        "coupa.ng"
+      ].includes(url.hostname)
     ) {
       return url.href;
     }
+
   } catch(e) {}
+
   return null;
 }
 
-function setLink(element,url) {
+function setLink(element, url) {
   element.href = url;
   element.target = "_blank";
   element.rel = "sponsored noopener";
   element.referrerPolicy = "unsafe-url";
 }
 
-categories.forEach(category => {
-  const button = document.createElement("button");
-  button.textContent = category;
-  button.classList.toggle("active", category === selected);
-  button.onclick = () => {
-    selected = category;
-    categoryBox.querySelectorAll("button").forEach(b =>
-      b.classList.toggle("active",b.textContent === selected)
+function renderCategories() {
+
+  const productCategories = products
+    .map(p => p.category)
+    .filter(c => typeof c === "string" && c.trim())
+    .map(c => c.trim());
+
+  const allCategories = [
+    ...new Set([
+      ...baseCategories,
+      ...productCategories
+    ])
+  ];
+
+  categoryBox.replaceChildren();
+
+  allCategories.forEach(category => {
+
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.textContent = category;
+
+    button.classList.toggle(
+      "active",
+      category === selected
     );
-    render();
-  };
-  categoryBox.appendChild(button);
-});
+
+    button.setAttribute(
+      "aria-pressed",
+      String(category === selected)
+    );
+
+    button.onclick = () => {
+
+      selected = category;
+
+      renderCategories();
+      render();
+
+    };
+
+    categoryBox.appendChild(button);
+
+  });
+}
 
 function render() {
-  const keyword = searchBox.value.trim().toLowerCase();
+
+  if (!loaded) return;
+
+  const keyword = searchBox.value
+    .trim()
+    .toLowerCase();
 
   const filtered = products.filter(p => {
+
     const text = [
-      p.id,p.name,p.model,p.category,p.description
+      p.id,
+      p.name,
+      p.model,
+      p.category,
+      p.description
     ].join(" ").toLowerCase();
 
     const matchNumber =
       /^\d+$/.test(keyword) &&
       Number(p.id) === Number(keyword);
 
-    return (selected === "전체" || p.category === selected)
-      && (text.includes(keyword) || matchNumber);
+    const matchCategory =
+      selected === "전체" ||
+      (p.category || "").trim() === selected;
+
+    return matchCategory &&
+      (text.includes(keyword) || matchNumber);
+
   });
 
-  filtered.sort((a,b) => Number(b.id)-Number(a.id));
+  filtered.sort(
+    (a,b) => Number(b.id) - Number(a.id)
+  );
+
+  sectionTitle.textContent =
+    selected === "전체"
+      ? "최신 추천 상품"
+      : selected + " 추천 상품";
 
   productBox.replaceChildren();
-  countBox.textContent = `추천 상품 ${filtered.length}개`;
+
+  countBox.textContent =
+    `추천 상품 ${filtered.length}개`;
 
   filtered.forEach(p => {
+
     const card = document.createElement("article");
     card.className = "product";
 
     const url = validLink(p.link);
 
     if (p.image) {
+
       const imageLink = document.createElement(
         url ? "a" : "div"
       );
+
       imageLink.className = "image-link";
 
       if (url) {
-        setLink(imageLink, validLink(p.imageLink) || url);
+        setLink(
+          imageLink,
+          validLink(p.imageLink) || url
+        );
       }
 
       const img = document.createElement("img");
+
       img.src = p.image;
       img.alt = p.name;
       img.loading = "lazy";
+
       img.onerror = () => imageLink.remove();
 
       imageLink.appendChild(img);
       card.appendChild(imageLink);
+
     }
 
     const details = document.createElement("div");
@@ -398,7 +601,9 @@ function render() {
 
     const number = document.createElement("div");
     number.className = "number";
-    number.textContent = `NO. ${p.id} | ${p.category}`;
+
+    number.textContent =
+      `NO. ${p.id} | ${p.category}`;
 
     const title = document.createElement("h2");
     title.textContent = p.name;
@@ -407,51 +612,112 @@ function render() {
     desc.className = "description";
     desc.textContent = p.description;
 
-    details.append(number,title,desc);
+    details.append(number, title, desc);
 
     if (url) {
+
       const buy = document.createElement("a");
       buy.className = "buy";
-      setLink(buy,url);
-      buy.textContent = "쿠팡 상품 확인 및 구매 →";
+
+      setLink(buy, url);
+
+      buy.textContent =
+        "쿠팡 상품 확인 및 구매 →";
+
       details.appendChild(buy);
+
     }
 
     const notice = document.createElement("div");
     notice.className = "notice";
-    notice.textContent = "가격 및 할인 혜택은 쿠팡에서 확인";
+
+    notice.textContent =
+      "가격 및 할인 혜택은 쿠팡에서 확인";
+
     details.appendChild(notice);
 
     card.appendChild(details);
     productBox.appendChild(card);
+
   });
 
   if (!filtered.length) {
-    countBox.textContent = "해당 상품이 없습니다.";
+
+    const empty = document.createElement("div");
+    empty.className = "empty";
+
+    empty.textContent = keyword
+      ? "검색 조건에 맞는 상품이 없습니다."
+      : "추천 상품을 준비 중입니다.";
+
+    productBox.appendChild(empty);
+
   }
 }
 
-searchBox.addEventListener("input",render);
+homeLink.addEventListener("click", event => {
 
-fetch("./products.json",{cache:"no-cache"})
-  .then(response => {
-    if (!response.ok) throw new Error("Load failed");
-    return response.json();
-  })
-  .then(data => {
-    if (!Array.isArray(data)) throw new Error("Invalid data");
-    products = data;
-    render();
-  })
-  .catch(() => {
-    countBox.textContent = "상품 등록을 준비 중입니다.";
-  });
-</script>
+  event.preventDefault();
 
-</body>
-</html>
+  selected = "전체";
+  searchBox.value = "";
 
-  });
+  window.location.reload();
+
+});
+
+searchBox.addEventListener("input", render);
+
+renderCategories();
+
+fetch("./products.json", {
+  cache: "no-store"
+})
+
+.then(response => {
+
+  if (!response.ok) {
+    throw new Error("Load failed");
+  }
+
+  return response.json();
+
+})
+
+.then(data => {
+
+  if (!Array.isArray(data)) {
+    throw new Error("Invalid data");
+  }
+
+  products = data.filter(p =>
+    p && typeof p === "object"
+  );
+
+  loaded = true;
+
+  renderCategories();
+  render();
+
+})
+
+.catch(error => {
+
+  console.error(error);
+
+  countBox.textContent =
+    "상품 정보를 불러오지 못했습니다.";
+
+  const empty = document.createElement("div");
+  empty.className = "empty";
+
+  empty.textContent =
+    "잠시 후 상단 로고를 눌러 다시 시도해 주세요.";
+
+  productBox.replaceChildren(empty);
+
+});
+
 </script>
 
 </body>
